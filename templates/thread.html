@@ -33,22 +33,86 @@ int main() {
   
   <h3>Esempio di utilizzo dei semafori</h3>
   <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
-#include <nigrosem.h>
+class Semaforo {
+    private final String nome;
+    private String colore;
 
-nsem_t semaphore;
+    public Semaforo(String nome) {
+        this.nome = nome;
+        this.colore = "ROSSO";
+    }
 
-void* worker(void* arg) {
-    nsem_wait(&semaphore);
-    // Sezione critica
-    nsem_post(&semaphore);
-    return NULL;
+    public void setColore(String colore) {
+        this.colore = colore;
+    }
+
+    public void stampa() {
+        System.out.println(nome + ": " + colore);
+    }
 }
 
-int main() {
-    nsem_init(&semaphore, 0, 1); // Semaforo binario
-    // Creazione thread...
-    return 0;
-}</pre>
+class Controller {
+    private final Semaforo[] semafori;
+
+    public Controller() {
+        semafori = new Semaforo[3];
+        semafori[0] = new Semaforo("SEMAFORO 1");
+        semafori[1] = new Semaforo("SEMAFORO 2");
+        semafori[2] = new Semaforo("SEMAFORO 3");
+    }
+
+    public void eseguiCicli(int numeroCicli) {
+        for (int ciclo = 0; ciclo < numeroCicli; ciclo++) {
+            int fase = ciclo % 3;
+
+            // Reset colori
+            for (Semaforo s : semafori) {
+                s.setColore("ROSSO");
+            }
+
+            switch (fase) {
+                case 0:
+                    semafori[0].setColore("VERDE");   // S1 verde
+                    semafori[1].setColore("ROSSO");   // S2 rosso
+                    semafori[2].setColore("GIALLO");  // S3 giallo
+                    break;
+                case 1:
+                    semafori[0].setColore("GIALLO");  // S1 giallo
+                    semafori[1].setColore("VERDE");   // S2 verde
+                    semafori[2].setColore("ROSSO");   // S3 rosso
+                    break;
+                case 2:
+                    semafori[0].setColore("ROSSO");   // S1 rosso
+                    semafori[1].setColore("GIALLO");  // S2 giallo
+                    semafori[2].setColore("VERDE");   // S3 verde
+                    break;
+            }
+
+            for (Semaforo s : semafori) {
+                s.stampa();
+            }
+
+            System.out.println();
+
+            try {
+                Thread.sleep(3000); // pausa tra un ciclo e l'altro
+            } catch (InterruptedException e) {
+                System.out.println("Simulazione interrotta.");
+            }
+        }
+
+        System.out.println("Fine simulazione.");
+    }
+}
+
+public class ControlloSemaforo {
+    public static void main(String[] args) {
+        Controller controller = new Controller();
+        controller.eseguiCicli(6); // esegui 6 cicli
+    }
+}
+}
+</pre>
 </div>
 
 <style>

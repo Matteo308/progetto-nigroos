@@ -3,14 +3,15 @@
 {% block intestazione %}Concetti Fondamentali{% endblock %}
 {% block corpo %}
 <div class="w3-container">
-  <h2>Elaborazione Sequenziale vs Parallela</h2>
+  <h2>Elaborazione Sequenziale vs. Elaborazione Parallela</h2>
   <p style="text-align: justify;">
     L'elaborazione sequenziale esegue un'istruzione alla volta in ordine, mentre l'elaborazione parallela 
     esegue più istruzioni contemporaneamente. NigroOS ottimizza entrambi gli approcci per massimizzare 
     l'efficienza del sistema.
   </p>
+ 
   
-  <table class="w3-table-all">
+  <table class="w3-table-all.center">
     <tr><th>Elaborazione Sequenziale</th><th>Elaborazione Parallela</th></tr>
     <tr>
       <td>Esecuzione di un compito alla volta</td>
@@ -26,25 +27,32 @@
     </tr>
   </table>
   
-  <h2>Programmazione Concorrente</h2>
+  <h2>Programmazione Concorrente: Quando le Azioni si Sovrappongono</h2>
   <p style="text-align: justify;">
-    La programmazione concorrente in NigroOS permette di gestire più attività che avanzano contemporaneamente, 
-    anche su un singolo processore, attraverso la tecnica del time-sharing. Questo approccio è fondamentale 
-    per garantire reattività e multitasking efficiente.
+   La programmazione concorrente è come avere più persone che lavorano allo stesso progetto, ma non necessariamente nello stesso momento. Possono alternarsi, condividere risorse e collaborare per raggiungere l'obiettivo finale. Ci sono diversi tipi di processi concorrenti.
   </p>
-  
-  <h2>Fork-Join</h2>
+       <table class="w3-table-all.center">
+      <tr><th>Tipo di Processo</th><th>Descrizione</th></tr>
+      <tr>
+        <td>Processi totalmente ignari</td>
+        <td>Non interagiscono tra loro e non condividono risorse.</td>
+      </tr>
+      <tr>
+        <td>Processi indirettamente interagenti</td>
+        <td>Non comunicano direttamente, ma influenzano un ambiente condiviso, come file o memoria.</td>
+      </tr>
+      <tr>
+        <td>Processi direttamente interagenti</td>
+        <td>Comunicano esplicitamente tra loro, scambiando informazioni o risorse per collaborare a un compito comune.</td>
+      </tr>
+    </table>
+  <h2>Fork-Join: Dividere e Unire</h2>
   <p style="text-align: justify;">
-    Il modello fork-join è un paradigma di programmazione parallela in cui un task principale (fork) 
-    divide il lavoro in sottotask che vengono eseguiti in parallelo, per poi essere ricombinati (join) 
-    quando tutti hanno completato l'esecuzione. NigroOS implementa questo modello con algoritmi ottimizzati.
+    Il modello fork-join è come dividere un grande compito in compiti più piccoli (fork), farli eseguire in parallelo, e poi riunire i risultati (join).
   </p>
-  
-  <h2>Deadlock</h2>
+  <h2>Deadlock: L'Ingorgo</h2>
   <p style="text-align: justify;">
-    Un deadlock si verifica quando due o più processi si bloccano a vicenda, ciascuno in attesa che l'altro 
-    rilasci una risorsa. NigroOS include meccanismi avanzati per prevenire, rilevare e risolvere i deadlock, 
-    garantendo la stabilità del sistema.
+  Un deadlock è come un ingorgo stradale. Due o più processi si bloccano a vicenda, aspettando una risorsa che è detenuta da un altro processo.
   </p>
 </div>
 
