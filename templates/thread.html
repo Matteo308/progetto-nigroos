@@ -10,20 +10,47 @@
   </p>
   
   <h3>Esempio di codice per la creazione di thread</h3>
-  <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
-#include <nigrothread.h>
+  <pre style="background-color: #000000; padding: 15px; border-radius: 5px;">
+public class MioRunnable implements Runnable {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Thread: Iterazione " + i);
+            try {
+                Thread.sleep(1000); // Pausa di 1 secondo
+            } catch (InterruptedException e) {
+                System.out.println("Thread interrotto");
+            }
+        }
+    }
 
-void* task(void* arg) {
-    printf("Thread in esecuzione\n");
-    return NULL;
+    public static void main(String[] args) {
+        
+        Runnable mioCompito = new MioRunnable();
+
+        
+        Thread thread = new Thread(mioCompito);
+        thread.start();
+
+        
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Main: Iterazione " + i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Main interrotto");
+            }
+        }
+
+        try {
+            thread.join(); 
+        } catch (InterruptedException e) {
+            System.out.println("Attesa del thread interrotta");
+        }
+
+        System.out.println("Thread completato.");
+    }
 }
-
-int main() {
-    nthread_t thread1;
-    nthread_create(&thread1, NULL, task, NULL);
-    nthread_join(thread1, NULL);
-    return 0;
-}</pre>
+</pre>
   
   <h2>Semafori in NigroOS</h2>
   <p style="text-align: justify;">
@@ -32,7 +59,7 @@ int main() {
   </p>
   
   <h3>Esempio di utilizzo dei semafori</h3>
-  <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
+  <pre style="background-color: #000000; padding: 15px; border-radius: 5px;">
 class Semaforo {
     private final String nome;
     private String colore;
@@ -65,26 +92,26 @@ class Controller {
         for (int ciclo = 0; ciclo < numeroCicli; ciclo++) {
             int fase = ciclo % 3;
 
-            // Reset colori
+           
             for (Semaforo s : semafori) {
                 s.setColore("ROSSO");
             }
 
             switch (fase) {
                 case 0:
-                    semafori[0].setColore("VERDE");   // S1 verde
-                    semafori[1].setColore("ROSSO");   // S2 rosso
-                    semafori[2].setColore("GIALLO");  // S3 giallo
+                    semafori[0].setColore("VERDE");  
+                    semafori[1].setColore("ROSSO");   
+                    semafori[2].setColore("GIALLO");  
                     break;
                 case 1:
-                    semafori[0].setColore("GIALLO");  // S1 giallo
-                    semafori[1].setColore("VERDE");   // S2 verde
-                    semafori[2].setColore("ROSSO");   // S3 rosso
+                    semafori[0].setColore("GIALLO"); 
+                    semafori[1].setColore("VERDE");   
+                    semafori[2].setColore("ROSSO");   
                     break;
                 case 2:
-                    semafori[0].setColore("ROSSO");   // S1 rosso
-                    semafori[1].setColore("GIALLO");  // S2 giallo
-                    semafori[2].setColore("VERDE");   // S3 verde
+                    semafori[0].setColore("ROSSO");   
+                    semafori[1].setColore("GIALLO");  
+                    semafori[2].setColore("VERDE");   
                     break;
             }
 
@@ -95,7 +122,7 @@ class Controller {
             System.out.println();
 
             try {
-                Thread.sleep(3000); // pausa tra un ciclo e l'altro
+                Thread.sleep(3000);
             } catch (InterruptedException e) {
                 System.out.println("Simulazione interrotta.");
             }
@@ -116,17 +143,32 @@ public class ControlloSemaforo {
 </div>
 
 <style>
-  h2 {
-    color: #333;
-    margin-top: 20px;
+ h2 {
+    color: #ffa500;
+    position: relative;
+    animation: titleGlow 2s ease-in-out infinite alternate;
   }
-  h3 {
-    color: #555;
-    margin-top: 15px;
+  @keyframes titleGlow {
+    from { text-shadow: 0 0 10px rgba(255, 165, 0, 0.3); }
+    to { text-shadow: 0 0 20px rgba(255, 165, 0, 0.6); }
   }
-  pre {
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
+  li {
+    padding: 10px;
+    margin: 5px 0;
+    background: #1a1a1a;
+    border-left: 4px solid #ffa500;
+    transition: transform 0.3s ease;
+  }
+  li:hover {
+    transform: translateX(10px);
+  }
+
+  p {
+    font-size: 1.2em;
+
+  }
+  li {
+    font-size: 1.2em;
   }
 </style>
 {% endblock %}

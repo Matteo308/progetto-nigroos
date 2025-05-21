@@ -5,26 +5,40 @@
   <title>{% block titolo %}NigroOS - Sistema Operativo Innovativo{% endblock %}</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <style>
-    body { 
+     body { 
       font-family: Arial, sans-serif; 
       padding: 20px; 
-      background-color: #f0f0f0;
+      background-color: #111;
+      color: #ddd;
     }
     table { border-collapse: collapse; width: 100%; margin-top: 20px; }
     th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
     th { background-color: #333; color: white; }
     footer {
-      background-color: #333;
+      background-color: #000;
       color: white;
       text-align: center;
       padding: 20px;
       margin-top: 30px;
+      border-top: 3px solid #ffa500;
     }
     .w3-bar {
-      background-color: #333;
+      background-color: #000;
+      box-shadow: 0 2px 5px rgba(255, 165, 0, 0.2);
     }
     .w3-bar a {
-      color: white;
+      color: #ffa500;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+    .w3-bar a:hover {
+      background-color: #ffa50022 !important;
+      border-bottom-color: #ffa500;
+      transform: translateY(-2px);
+    }
+    h1 {
+      color: #ffa500;
+      text-shadow: 2px 2px 4px rgba(255, 165, 0, 0.3);
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,6 +47,7 @@
   <div class="w3-bar">
     <a href="#" class="w3-bar-item w3-button w3-left"><i class="fa fa-search"></i></a>
     <input type="text" class="w3-bar-item w3-round-xxlarge w3-input w3-left" placeholder="Cerca...">
+    <a href="/home" class="w3-bar-item- w3-button w3-right"><img src="/static/nigrosoft image 1.png" height="50px" width="50px"></a>
     <a href="/home" class="w3-bar-item w3-button w3-round-xxlarge w3-center">HOME</a>
     <a href="/concetti" class="w3-bar-item w3-button w3-center">CONCETTI BASE</a>
     <a href="/thread" class="w3-bar-item w3-button w3-center">THREAD E SEMAFORI</a>

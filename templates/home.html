@@ -24,18 +24,32 @@
 </div>
 
 <style>
-  h1 {
-    color: #333;
-    font-size: 36px;
+ h2 {
+    color: #ffa500;
+    position: relative;
+    animation: titleGlow 2s ease-in-out infinite alternate;
   }
-  h2 {
-    color: #555;
-    font-size: 28px;
-    margin-top: 20px;
+  @keyframes titleGlow {
+    from { text-shadow: 0 0 10px rgba(255, 165, 0, 0.3); }
+    to { text-shadow: 0 0 20px rgba(255, 165, 0, 0.6); }
   }
-  p, li {
-    font-size: 18px;
-    line-height: 1.6;
+  li {
+    padding: 10px;
+    margin: 5px 0;
+    background: #1a1a1a;
+    border-left: 4px solid #ffa500;
+    transition: transform 0.3s ease;
+  }
+  li:hover {
+    transform: translateX(10px);
+  
+  }
+  p {
+    font-size: 1.2em;
+
+  }
+  li {
+    font-size: 1.2em;
   }
 </style>
 {% endblock %}
