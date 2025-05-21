@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% block titolo %}NigroOS - Concetti Base{% endblock %}
+{% block intestazione %}Concetti Fondamentali{% endblock %}
+{% block corpo %}
+<div class="w3-container">
+  <h2>Elaborazione Sequenziale vs Parallela</h2>
+  <p style="text-align: justify;">
+    L'elaborazione sequenziale esegue un'istruzione alla volta in ordine, mentre l'elaborazione parallela 
+    esegue più istruzioni contemporaneamente. NigroOS ottimizza entrambi gli approcci per massimizzare 
+    l'efficienza del sistema.
+  </p>
+  
+  <table class="w3-table-all">
+    <tr><th>Elaborazione Sequenziale</th><th>Elaborazione Parallela</th></tr>
+    <tr>
+      <td>Esecuzione di un compito alla volta</td>
+      <td>Esecuzione di più compiti contemporaneamente</td>
+    </tr>
+    <tr>
+      <td>Più semplice da implementare</td>
+      <td>Maggiore complessità di gestione</td>
+    </tr>
+    <tr>
+      <td>Utilizza un solo core della CPU</td>
+      <td>Sfrutta tutti i core disponibili</td>
+    </tr>
+  </table>
+  
+  <h2>Programmazione Concorrente</h2>
+  <p style="text-align: justify;">
+    La programmazione concorrente in NigroOS permette di gestire più attività che avanzano contemporaneamente, 
+    anche su un singolo processore, attraverso la tecnica del time-sharing. Questo approccio è fondamentale 
+    per garantire reattività e multitasking efficiente.
+  </p>
+  
+  <h2>Fork-Join</h2>
+  <p style="text-align: justify;">
+    Il modello fork-join è un paradigma di programmazione parallela in cui un task principale (fork) 
+    divide il lavoro in sottotask che vengono eseguiti in parallelo, per poi essere ricombinati (join) 
+    quando tutti hanno completato l'esecuzione. NigroOS implementa questo modello con algoritmi ottimizzati.
+  </p>
+  
+  <h2>Deadlock</h2>
+  <p style="text-align: justify;">
+    Un deadlock si verifica quando due o più processi si bloccano a vicenda, ciascuno in attesa che l'altro 
+    rilasci una risorsa. NigroOS include meccanismi avanzati per prevenire, rilevare e risolvere i deadlock, 
+    garantendo la stabilità del sistema.
+  </p>
+</div>
+
+<style>
+  h2 {
+    color: #333;
+    margin-top: 30px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  table {
+    margin: 20px 0;
+  }
+</style>
+{% endblock %}

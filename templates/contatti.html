@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% block titolo %}NigroOS - Contatti{% endblock %}
+{% block intestazione %}Contatti NigroSoft{% endblock %}
+{% block corpo %}
+<div class="w3-container w3-center">
+  <h2>Informazioni di contatto</h2>
+  
+  <div class="w3-card w3-padding" style="max-width: 600px; margin: 0 auto;">
+    <h3>NigroSoft S.p.A.</h3>
+    <p><i class="fa fa-map-marker"></i> Via dell'Innovazione, 42 - 00100 Roma, Italia</p>
+    <p><i class="fa fa-phone"></i> +39 06 1234567</p>
+    <p><i class="fa fa-envelope"></i> info@nigrosoft.com</p>
+    <p><i class="fa fa-globe"></i> www.nigrosoft.com</p>
+  </div>
+  
+  <h3 style="margin-top: 30px;">Supporto tecnico</h3>
+  <p>support@nigroos.com</p>
+  <p>+39 06 7654321 (24/7)</p>
+  
+  <h3 style="margin-top: 30px;">Form per contatti</h3>
+  <form class="w3-container" style="max-width: 500px; margin: 0 auto;">
+    <input class="w3-input w3-border" type="text" placeholder="Nome" required>
+    <input class="w3-input w3-border" type="email" placeholder="Email" required style="margin-top: 10px;">
+    <textarea class="w3-input w3-border" placeholder="Messaggio" rows="5" required style="margin-top: 10px;"></textarea>
+    <button class="w3-button w3-black w3-margin-top" type="submit">Invia</button>
+  </form>
+</div>
+
+<style>
+  h2 {
+    color: #333;
+  }
+  h3 {
+    color: #555;
+  }
+  .fa {
+    margin-right: 10px;
+  }
+</style>
+{% endblock %}

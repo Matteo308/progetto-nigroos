@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block titolo %}NigroOS - Sistema Operativo Innovativo{% endblock %}</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      padding: 20px; 
+      background-color: #f0f0f0;
+    }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #333; color: white; }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .w3-bar {
+      background-color: #333;
+    }
+    .w3-bar a {
+      color: white;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="w3-bar">
+    <a href="/home" class="w3-bar-item w3-button w3-round-xxlarge w3-center">HOME</a>
+    <a href="/concetti" class="w3-bar-item w3-button w3-center">CONCETTI BASE</a>
+    <a href="/thread" class="w3-bar-item w3-button w3-center">THREAD E SEMAFORI</a>
+    <a href="/grafi" class="w3-bar-item w3-button w3-center">GRAFI</a>
+    <a href="/contatti" class="w3-bar-item w3-button w3-center">CONTATTI</a>
+    <a href="#" class="w3-bar-item w3-button w3-center"><i class="fa fa-search"></i></a>
+    <input type="text" class="w3-bar-item w3-round-xxlarge w3-input w3-center" placeholder="Cerca...">
+  </div>
+
+  <br><br>
+  <h1>{% block intestazione %}{% endblock %}</h1>
+  <br><br>
+  {% block corpo %}{% endblock %}
+  
+  <footer>
+    <p>NigroOS - Sistema Operativo Innovativo</p>
+    <p>© 2025 NigroSoft. Tutti i diritti riservati.</p>
+  </footer>
+</body>
+</html>

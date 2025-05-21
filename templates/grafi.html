@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block titolo %}NigroOS - Grafi delle Precedenze{% endblock %}
+{% block intestazione %}Grafi delle Precedenze{% endblock %}
+{% block corpo %}
+<div class="w3-container w3-center">
+  <h2>Grafo delle Precedenze</h2>
+  <p style="text-align: justify; max-width: 800px; margin: 0 auto;">
+    I grafi delle precedenze rappresentano le dipendenze tra task in un sistema parallelo. 
+    NigroOS include strumenti avanzati per analizzare e ottimizzare questi grafi.
+  </p>
+  
+  <img src="/static/grafo.png" alt="Grafo delle Precedenze" style="max-width: 100%; margin: 20px 0;">
+  
+  <h3>Interpretazione del grafo</h3>
+  <ul style="text-align: left; max-width: 800px; margin: 0 auto;">
+    <li>I nodi rappresentano task o operazioni</li>
+    <li>Gli archi rappresentano dipendenze tra task</li>
+    <li>Task senza archi entranti possono essere eseguiti immediatamente</li>
+    <li>Task con archi uscenti devono completare prima che i task successivi possano iniziare</li>
+  </ul>
+</div>
+
+<style>
+  h2 {
+    color: #333;
+  }
+  h3 {
+    color: #555;
+    margin-top: 20px;
+  }
+  ul {
+    margin: 20px 0;
+  }
+</style>
+{% endblock %}

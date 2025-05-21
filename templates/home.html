@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{% block titolo %}NigroOS - Home{% endblock %}
+{% block intestazione %}Benvenuti in NigroOS{% endblock %}
+{% block corpo %}
+<div class="w3-container w3-center">
+  <img src="/static/nigroos.png" alt="NigroOS Logo" style="max-width: 300px;">
+  <h2>Il sistema operativo del futuro</h2>
+  <p style="text-align: justify; max-width: 800px; margin: 0 auto;">
+    NigroOS è un sistema operativo rivoluzionario progettato da NigroSoft per offrire prestazioni 
+    eccezionali e un'esperienza utente senza precedenti. Con un'architettura innovativa che combina 
+    elaborazione parallela e concorrente, NigroOS è la scelta ideale per ambienti ad alte prestazioni, 
+    data center e computing scientifico.
+  </p>
+  
+  <h2 style="margin-top: 30px;">Caratteristiche principali</h2>
+  <ul style="text-align: left; max-width: 800px; margin: 0 auto;">
+    <li>Gestione avanzata dei thread e dei processi</li>
+    <li>Supporto nativo per l'elaborazione parallela</li>
+    <li>Algoritmi di scheduling ottimizzati</li>
+    <li>Gestione efficiente della memoria</li>
+    <li>Interfaccia utente intuitiva</li>
+    <li>Alta sicurezza e stabilità</li>
+  </ul>
+</div>
+
+<style>
+  h1 {
+    color: #333;
+    font-size: 36px;
+  }
+  h2 {
+    color: #555;
+    font-size: 28px;
+    margin-top: 20px;
+  }
+  p, li {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+</style>
+{% endblock %}

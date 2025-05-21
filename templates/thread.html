@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+{% block titolo %}NigroOS - Thread e Semafori{% endblock %}
+{% block intestazione %}Gestione dei Thread e Semafori{% endblock %}
+{% block corpo %}
+<div class="w3-container">
+  <h2>Thread in NigroOS</h2>
+  <p style="text-align: justify;">
+    In NigroOS, i thread sono unità fondamentali di esecuzione che condividono lo stesso spazio di memoria. 
+    La gestione efficiente dei thread è cruciale per le prestazioni del sistema.
+  </p>
+  
+  <h3>Esempio di codice per la creazione di thread</h3>
+  <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
+#include <nigrothread.h>
+
+void* task(void* arg) {
+    printf("Thread in esecuzione\n");
+    return NULL;
+}
+
+int main() {
+    nthread_t thread1;
+    nthread_create(&thread1, NULL, task, NULL);
+    nthread_join(thread1, NULL);
+    return 0;
+}</pre>
+  
+  <h2>Semafori in NigroOS</h2>
+  <p style="text-align: justify;">
+    I semafori sono strutture di sincronizzazione che controllano l'accesso a risorse condivise. 
+    NigroOS implementa semafori binari e contatori con algoritmi ad alta efficienza.
+  </p>
+  
+  <h3>Esempio di utilizzo dei semafori</h3>
+  <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 5px;">
+#include <nigrosem.h>
+
+nsem_t semaphore;
+
+void* worker(void* arg) {
+    nsem_wait(&semaphore);
+    // Sezione critica
+    nsem_post(&semaphore);
+    return NULL;
+}
+
+int main() {
+    nsem_init(&semaphore, 0, 1); // Semaforo binario
+    // Creazione thread...
+    return 0;
+}</pre>
+</div>
+
+<style>
+  h2 {
+    color: #333;
+    margin-top: 20px;
+  }
+  h3 {
+    color: #555;
+    margin-top: 15px;
+  }
+  pre {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+  }
+</style>
+{% endblock %}
